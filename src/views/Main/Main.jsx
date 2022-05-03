@@ -22,7 +22,7 @@ function Main() {
     }
 
     return (
-        <MainContainer>
+        <MainContainer data-testid='main'>
             <Autocomplete
                 renderInput={(params) => (
                     <TextField {...params} label="Highlights" margin="normal"/>

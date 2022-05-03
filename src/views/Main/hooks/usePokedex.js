@@ -1,6 +1,6 @@
 import axios from "axios";
 import {useQuery} from "react-query";
-import {useEffect, useState} from "react";
+import {useState} from "react";
 
 
 async function getPokemons() {
@@ -18,9 +18,8 @@ export async function getPokemonDescription(name) {
 
 export function usePokedex() {
     const [selected, setSelected] = useState("bulbasaur");
-    const {data = []} = useQuery('pokemons', () => getPokemons())
-    const {data: pokemon, isLoading} = useQuery(['pokemon', selected], () => getPokemonDescription(selected))
-    const options = data || []
+    const {data: options = []} = useQuery('pokemons', () => getPokemons())
+   const {data: pokemon, isLoading} = useQuery(['pokemon', selected], () => getPokemonDescription(selected))
 
 
     return {options, setSelected, isLoading, pokemon}
