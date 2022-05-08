@@ -19,7 +19,7 @@ export async function getPokemonDescription(name) {
 export function usePokedex() {
     const [selected, setSelected] = useState("bulbasaur");
     const {data: options = []} = useQuery('pokemons', () => getPokemons())
-   const {data: pokemon, isLoading} = useQuery(['pokemon', selected], () => getPokemonDescription(selected))
+    const {data: pokemon, isLoading} = useQuery(['pokemon', selected], () => getPokemonDescription(selected))
 
 
     return {options, setSelected, isLoading, pokemon}
