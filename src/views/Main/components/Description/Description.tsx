@@ -1,7 +1,12 @@
 import React from 'react';
 import {Card, CardContent, CardHeader, CardMedia} from "@mui/material";
 
-function Description({name, imageUrl}) {
+type  DescriptionProps = {
+    name: string,
+    imageUrl: string,
+}
+
+function Description({name, imageUrl}: DescriptionProps) {
     return (
         <Card>
             <CardHeader title={name}/>

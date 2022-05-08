@@ -1,6 +1,6 @@
-import React from "react";
-import {render} from "@testing-library/react";
-import {QueryClient, QueryClientProvider, setLogger} from "react-query";
+import React from 'react';
+import { render } from '@testing-library/react';
+import { QueryClient, QueryClientProvider, setLogger } from 'react-query';
 
 // suppress errors written to console
 setLogger({
@@ -18,14 +18,14 @@ const defaultQueryClient = new QueryClient({
             retry: 0,
         },
     },
-})
+});
 
-export function renderWithQueryClient(component, client) {
+export function renderWithQueryClient(component: React.ReactNode, client?: any) {
     const queryClient = client ?? defaultQueryClient;
 
     render(
         <QueryClientProvider client={queryClient}>
             {component}
-        </QueryClientProvider>
-    )
+        </QueryClientProvider>,
+    );
 }
